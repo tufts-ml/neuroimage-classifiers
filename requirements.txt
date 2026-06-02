@@ -1,0 +1,44 @@
+# TODO: Download python 3.12 https://www.python.org/downloads/
+# TODO: Download git 2.47 (or a similar version) https://git-scm.com/downloads
+# TODO: Download ants 2.5 https://github.com/ANTsX/ANTs/releases
+
+wget https://github.com/Kitware/CMake/releases/download/v3.31.1/cmake-3.31.1.tar.gz
+tar -xzvf cmake-3.31.1.tar.gz
+cd cmake-3.31.1
+./bootstrap --prefix=$HOME/cmake
+make
+make install
+
+workingDir=${PWD}
+git clone https://github.com/ANTsX/ANTs.git
+mkdir build install
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=${workingDir}/install ../ANTs 2>&1 | tee cmake.log
+make -j 4 2>&1 | tee build.log
+cd ANTS-build
+make install 2>&1 | tee install.log
+
+# python -m venv brain-scan-classifiers-venv
+# source brain-scan-classifiers-venv/bin/activate
+# pip install -r requirements.txt
+numpy==1.26.4
+scipy==1.13.1
+notebook==7.2.2
+matplotlib==3.9.2
+seaborn==0.13.2
+pandas==2.2.2
+scikit-learn==1.5.1
+# Neuroimaging
+antspyx==0.4.2
+dicom2nifti==2.5.0
+nibabel==5.3.2
+nilearn==0.10.4
+pydicom==3.0.1
+simpleitk==2.4.0
+# Survival analysis
+lifelines==0.30.0
+pycox==0.3.0
+# PyTorch
+--extra-index-url https://download.pytorch.org/whl/cu121 "torch==2.4.1+cu121"
+--extra-index-url https://download.pytorch.org/whl/cu121 "torchvision==0.19.1+cu121"
+torchmetrics==1.4.2
