@@ -398,9 +398,6 @@ class SmAP(torch.nn.Module):
             for out_i in torch.split(out, lengths)
         ])
         return out, attn_weights
-<<<<<<< Updated upstream
-    
-=======
         
 class SmTransformerLayer(torch.nn.Module):
     def __init__(
@@ -463,5 +460,4 @@ class SmTAP(torch.nn.Module):
             for attn_weights_i in attn_weights
         ])
         return out, attn_weights
-    
->>>>>>> Stashed changes
+        
