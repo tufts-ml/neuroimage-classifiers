@@ -97,4 +97,12 @@ if __name__=="__main__":
     
         val_auroc_series = model_history_df[model_history_df.train_auroc > model_history_df.val_auroc].val_auroc
         if args.save and epoch == (val_auroc_series.idxmax() if not val_auroc_series.empty else None):
-            torch.save(model.state_dict(), f"{args.experiments_dir}/{args.model_name}.pt")
+            torch.save({
+                "state_dict": model.state_dict(),
+                "test_labels": torch.stack(test_metrics["labels"]),
+                "test_logits": torch.stack(test_metrics["logits"]),
+                "train_labels": torch.stack(train_metrics["labels"]),
+                "train_logits": torch.stack(train_metrics["logits"]),
+                "val_labels": torch.stack(val_metrics["labels"]),
+                "val_logits": torch.stack(val_metrics["logits"]),
+            }, f"{args.experiments_dir}/{args.model_name}.pth")
