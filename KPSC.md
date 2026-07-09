@@ -14,8 +14,8 @@ ssh <uuid>@<ip_address>
 
 ## Installing enviroment
 ```
-python -m venv brain-scan-classifiers-venv
-source brain-scan-classifiers-venv/bin/activate
+python -m venv neuroimage-classifiers-venv
+source neuroimage-classifiers-venv/bin/activate
 pip install -r requirements.txt
 ```
 
