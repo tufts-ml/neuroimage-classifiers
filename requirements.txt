@@ -18,8 +18,8 @@ make -j 4 2>&1 | tee build.log
 cd ANTS-build
 make install 2>&1 | tee install.log
 
-# python -m venv brain-scan-classifiers-venv
-# source brain-scan-classifiers-venv/bin/activate
+# python -m venv neuroimage-classifiers-venv
+# source neuroimage-classifiers-venv/bin/activate
 # pip install -r requirements.txt
 numpy==1.26.4
 scipy==1.13.1
