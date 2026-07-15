@@ -7,7 +7,7 @@ get <remote_path> <local_path>
 ```
 
 ## Logging in to KPSC
-Log in to virtual machine. Then, ssh into KPSC high-performance computing (HPC) cluster.
+Log in to virtual machine. Then, ssh into KPSC GPU server.
 ```
 ssh <uuid>@<ip_address>
 ```
